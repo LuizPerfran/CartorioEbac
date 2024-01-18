@@ -2,6 +2,9 @@
 #include <stdlib.h> // biblioteca de espaço em memória
 #include <locale.h> //biblioteca de alocações de texto por região
 #include <string.h> // biblioteca responsável por cuidar das strings
+#include <iostream>
+
+const int MAX_TAMANHO_SENHA = 20;
 
 int registro()
 {
@@ -134,50 +137,67 @@ int main()
 {
     int opcao = 0;
     int laco = 1;
+    std::string senhadigitada;
+    std::string cpf_digitado;
 
-    for (laco = 1; laco == 1;)
+    std::cout << "### Cartório da EBAC ###\n\n";
+    std::cout << "Login de administrador!\n\nDigite o CPF: ";
+    std::cin >> cpf_digitado;
+    
+    std::cout << "Digite a senha: ";
+    std::cin >> senhadigitada;
+
+	if (cpf_digitado == "admin" && senhadigitada == "admin")
     {
-        system("cls");
-        setlocale(LC_ALL, "Portuguese");
+    
 
-        printf("### Cartório da EBAC ###\n\n");
-        printf("Escolha a opção desejada do menu: \n\n");
-        printf("\t1 - Registrar Nomes\n");
-        printf("\t2 - Consultar Nomes\n");
-        printf("\t3 - Deletar Nomes\n");
-        printf("\t4 - Sair do sistema\n\n");
-        printf("Opção: "); // fim do menu
-
-        scanf("%d", &opcao); // armazenando escolha do usuário
-
-        system("cls"); // limpar a tela
-
-        switch (opcao)
-        {
-        case 1:
-            registro();
-            break;
-
-        case 2:
-            consulta();
-            break;
-
-        case 3:
-            deletar();
-            break;
-            
-        case 4:
-        	printf("Obrigado por utilizar o sistema!\n");
-        	return 0;
-        	break;
-
-        default:
-            printf("Essa opção não está disponível!\n");
-            system("pause");
-            break;
-        }
-    }
-
+	    for (laco = 1; laco == 1;)
+	    {
+	        system("cls");
+	        setlocale(LC_ALL, "Portuguese");
+	
+	        printf("### Cartório da EBAC ###\n\n");
+	        printf("Escolha a opção desejada do menu: \n\n");
+	        printf("\t1 - Registrar Nomes\n");
+	        printf("\t2 - Consultar Nomes\n");
+	        printf("\t3 - Deletar Nomes\n");
+	        printf("\t4 - Sair do sistema\n\n");
+	        printf("Opção: "); // fim do menu
+	
+	        scanf("%d", &opcao); // armazenando escolha do usuário
+	
+	        system("cls"); // limpar a tela
+	
+	        switch (opcao)
+	        {
+	        case 1:
+	            registro();
+	            break;
+	
+	        case 2:
+	            consulta();
+	            break;
+	
+	        case 3:
+	            deletar();
+	            break;
+	            
+	        case 4:
+	        	printf("Obrigado por utilizar o sistema!\n");
+	        	return 0;
+	        	break;
+	
+	        default:
+	            printf("Essa opção não está disponível!\n");
+	            system("pause");
+	            break;
+	        }//fechando casos switch
+	    }//fechando função "for"
+	}//fechando if de senha correta
+	
+	else
+	    std::cout << "Login ou senha incorretos!\n";
+	
     return 0;
 }
 
